@@ -2,6 +2,7 @@ import "../../Style/ChatHome.css";
 import { useState } from "react";
 import axios from "axios";
 
+
 const ChatHome = () => {
     const [prompt, setPrompt] = useState("");
     const [responseData, setResponseData] = useState("");
