@@ -36,7 +36,7 @@ const ChatHome = () => {
         <div className="container">
             <div className="VerticalSplit">
                 <form className="login-form" onSubmit={handleQuery}>
-                    <h2>Hello, i am dan, your very own CS100 Virtual Teaching Assistant, how can i help you?</h2>
+                    <h2>Hello, i am david, your very own CS100 Virtual Teaching Assistant, how can i help you?</h2>
                     <div className="response-area">
                         <textarea
                             className="response-textarea"
