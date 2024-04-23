@@ -52,7 +52,7 @@ const ChatHome = () => {
                             type="text"
                             id="query"
                             name="query"
-                            placeholder="Enter your query (use keyword syntax for syntaxical help)"
+                            placeholder="Enter your query (use keyword (syntax) for syntaxical help or begin with (how to) to start a problem solving session"
                             autoComplete="current-username"
                             value={prompt}
                             onChange={(e) => setPrompt(e.target.value)}
