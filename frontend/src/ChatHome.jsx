@@ -2,7 +2,6 @@ import "../../Style/ChatHome.css";
 import { useState } from "react";
 import axios from "axios";
 
-
 const ChatHome = () => {
     const [prompt, setPrompt] = useState("");
     const [responseData, setResponseData] = useState("");
@@ -19,7 +18,10 @@ const ChatHome = () => {
                 console.log("responseText is: ", responseText);
                 if (responseText === "(E)") {
                     // append to corrections this response
-                    setCorrections(Corrections + "\n You were wrong in the previous step, A detailed explanation is: \n" + response.data.slice(3));
+                    //split the response into two parts by $
+                    let parts = response.data.split("$");
+                    setCorrections(Corrections + "\n You were wrong in the previous step, A detailed explanation is: \n" + parts[0].slice(3));
+                    setResponseData(parts[1]);
                 }
                 else {
                     setResponseData(response.data); // Update response data state

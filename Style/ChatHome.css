@@ -79,6 +79,7 @@ button:hover {
   width: 90%;
   min-height: 150px;
   padding: 10px;
+  
   border: 1px solid #ccc;
   border-radius: 5px;
   color: green;
