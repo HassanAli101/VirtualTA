@@ -35,7 +35,7 @@ const chat = model.startChat({
 });
   
 
-async function run(prompt) {
+async function VTAAction(prompt) {
     try {
         const result = await chat.sendMessage("Classify the following user input as a \"Question\" , \"Syntax Question\" or an \"Answer\" to a question, and respond in these labels only: " + prompt );
         const response = result.response;
@@ -74,7 +74,7 @@ async function run(prompt) {
         } else if (text == "Answer") {
 
             // return "Answer if executed"
-            const result2 = await chat.sendMessage("Compare the following user input to the correct answer and classify whether this is \"Correct\" or \"Incorrect\" only: " + prompt + "Actual step: " + PartsArray[CurrentPart]);
+            const result2 = await chat.sendMessage("Compare the following user input to the correct answer and classify whether this is \"Correct\" or \"Incorrect\" only, if the user does not know, label it as \"Incorrect\": " + prompt + "Actual step: " + PartsArray[CurrentPart]);
             const response2 = result2.response;
             const text2 = response2.text();
             console.log("text2: ", text2);
@@ -94,7 +94,7 @@ async function run(prompt) {
                 const response3 = result3.response;
                 const text3 = response3.text();
                 console.log("text3: ", text3);
-                return text3;
+                return "(E)" + text3;
             } else {
                 return "Are you sure you are asking a C++ related question?";
             }
@@ -122,7 +122,7 @@ app.post("/GenQuerry", async (req, res) => {
     // console.log(prompt);
     // let querry = "[YOU ARE A TEACHER ADVISING A BEGINNER STUDENT IN C++, DO NOT TELLL ME ABOUT ANYTHING OTHER THAN CODING, AND STRICTLY DO NOT PROVIDE CODE,SYNTAX OR EXAMPLES, ONLY ANSWER THIS QUESTION IN PLAIN ENGLISH AND CONTINOUS PARAGRAPH WITHIN 90 WORDS:]: " + prompt;
     // console.log("querry is: ", querry);
-    const result = await run(prompt);
+    const result = await VTAAction(prompt);
     
     res.status(200).json(result);
     } catch (error) {
