@@ -71,7 +71,7 @@ async function VTAAction(prompt) {
                 const text3 = response3.text();
                 // CurrentPart++;
                 console.log("text3: ", text3);
-                return text3;
+                return "I have broken down your querry into " + NumParts + " steps, which i will ask as questions.\nHere is the first one: " + text3;
             } else if (text == "Syntax Question" && NumParts == 0) {
                 const result2 = await chat.sendMessage("Answer this syntax question in detail, and provide relevant documentation link at the end: " + prompt);
                 const response2 = result2.response;
@@ -122,10 +122,6 @@ async function VTAAction(prompt) {
                     return "Are you sure you are asking a C++ related question?";
                 }
             }
-            // } else {
-            //     return "Are you sure you are asking a C++ related question?";
-            // }
-            return text;
         } catch (error) {
             console.error("Error during chat.sendMessage:", error);
             // Handle the error here, e.g., return a default response or retry the query

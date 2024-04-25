@@ -20,7 +20,7 @@ const ChatHome = () => {
                     // append to corrections this response
                     //split the response into two parts by $
                     let parts = response.data.split("$");
-                    setCorrections(Corrections + "\n You were wrong in the previous step, A detailed explanation is: \n" + parts[0].slice(3));
+                    setCorrections("You were wrong in the previous step, A detailed explanation is: \n" + parts[0].slice(3));
                     setResponseData(parts[1]);
                 }
                 else {
