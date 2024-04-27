@@ -1,11 +1,12 @@
 {
-  "name": "pa3-mern",
-  "version": "1.0.0",
+  "name": "David, VTA",
+  "version": "1.6",
   "description": "MERN assignment",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "nodemon server.js"
   },
   "type": "module",
   "author": "",

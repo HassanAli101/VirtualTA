@@ -6,9 +6,11 @@ const ChatHome = () => {
     const [prompt, setPrompt] = useState("");
     const [responseData, setResponseData] = useState("");
     const [Corrections, setCorrections] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleQuery = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         try {
             const response = await axios.post("http://localhost:8000/GenQuerry", { prompt });
             if (response.status === 200) {
@@ -27,10 +29,12 @@ const ChatHome = () => {
                     setResponseData(response.data); // Update response data state
                 }
             } else {
-                alert("Error occurred :/");
+                alert("You have been barred from using me, i dont aid violent or repetitive questions!");
             }
         } catch (err) {
             console.log("error: ", err);
+        }finally {
+            setIsLoading(false);
         }
     };
 
@@ -40,11 +44,15 @@ const ChatHome = () => {
                 <form className="login-form" onSubmit={handleQuery}>
                     <h2>Hello, i am david, your very own CS100 Virtual Teaching Assistant, how can i help you?</h2>
                     <div className="response-area">
-                        <textarea
-                            className="response-textarea"
-                            value={responseData}
-                            readOnly
-                        ></textarea>
+                        {isLoading ? (
+                            <div className="loading-spinner"></div> // Your spinner element
+                        ) : (
+                            <textarea
+                                className="response-textarea"
+                                value={responseData}
+                                readOnly
+                            ></textarea>
+                        )}
                     </div>
                     <div className="form-group">
                         <label htmlFor="query">Query:</label>

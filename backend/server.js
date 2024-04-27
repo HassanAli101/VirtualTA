@@ -57,10 +57,12 @@ async function VTAAction(prompt) {
                 // console.log(PartsArray);
                 let filteredPartsArray = [];
                 for (let i = 0; i < PartsArray.length; i++) { //remove empty parts from array
-                    if (!isNaN(PartsArray[i].charAt(0)) || PartsArray[i].charAt(0) != "" || PartsArray[i].charAt(0) != " "){
+                    console.log("char at index 0 is: ", PartsArray[i].charAt(0), " and is it a number: ", !isNaN(PartsArray[i].charAt(0)), " and is it empty: ", PartsArray[i].charAt(0) == " ", " and is it a space: ", PartsArray[i].charAt(0) == "");
+                    if (!isNaN(PartsArray[i].charAt(0)) && PartsArray[i].charAt(0) != "" && PartsArray[i].charAt(0) != " "){
                         filteredPartsArray.push(PartsArray[i]);
                     }
                 }
+                console.log("filtered parts array: ", filteredPartsArray);
                 PartsArray = filteredPartsArray
                 console.log("parts array: ", PartsArray);
                 NumParts = PartsArray.length;
@@ -86,7 +88,7 @@ async function VTAAction(prompt) {
                 console.log("text2: ", text2);
                 if (text2 == "Correct") {
                     CurrentPart++;
-                    if (CurrentPart < NumParts) {
+                    if (CurrentPart <= NumParts) {
                         const result3 = await chat.sendMessage("Convert this step into a question to be asked to the beginner user to force them to think algorithmically: " + PartsArray[CurrentPart]);
                         const response3 = result3.response;
                         const text3 = response3.text();
@@ -105,7 +107,7 @@ async function VTAAction(prompt) {
                     const text3 = response3.text();
                     console.log("text3: ", text3);
                     CurrentPart++;
-                    if (CurrentPart < NumParts) {
+                    if (CurrentPart <= NumParts) {
                         const result4 = await chat.sendMessage("Convert this step into a question to be asked to the beginner user to force them to think algorithmically: " + PartsArray[CurrentPart]);
                         const response4 = result4.response;
                         const text4 = response4.text();
@@ -124,8 +126,7 @@ async function VTAAction(prompt) {
             }
         } catch (error) {
             console.error("Error during chat.sendMessage:", error);
-            // Handle the error here, e.g., return a default response or retry the query
-            return "An error occurred. Please try again later.";
+            return "Umm.... Either you are asking something very wrong or repetitively... yeah, you are barred from using me";
         }
     }
     else {
@@ -143,14 +144,9 @@ server.listen(8000, () => {
 app.post("/GenQuerry", async (req, res) => {
     try {
         const { prompt } = req.body;
-        // console.log(prompt);
-        // let querry = "[YOU ARE A TEACHER ADVISING A BEGINNER STUDENT IN C++, DO NOT TELLL ME ABOUT ANYTHING OTHER THAN CODING, AND STRICTLY DO NOT PROVIDE CODE,SYNTAX OR EXAMPLES, ONLY ANSWER THIS QUESTION IN PLAIN ENGLISH AND CONTINOUS PARAGRAPH WITHIN 90 WORDS:]: " + prompt;
-        // console.log("querry is: ", querry);
         const result = await VTAAction(prompt);
-
         res.status(200).json(result);
     } catch (error) {
-
         console.log("error occured", error);
         res.status(202).json("Are you sure you are asking a C++ related question?");
     }
