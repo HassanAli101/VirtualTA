@@ -12,7 +12,7 @@ const ChatHome = () => {
         e.preventDefault();
         setIsLoading(true);
         try {
-            const response = await axios.post("http://localhost:8000/GenQuerry", { prompt });
+            const response = await axios.post("https://virtual-ta-server.vercel.app/GenQuerry", { prompt });
             if (response.status === 200) {
                 console.log("response is: ", response);
                 //separate first 3 characters from response
