@@ -1,19 +1,12 @@
 import http from "http";
 import { app } from "./app.js"
-// import dotenv from "dotenv";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-
-// dotenv.config(
-//     {
-//         path: "./.env.local"
-//     }
-// );
 
 let PartsArray = [];
 let NumParts = 0;
 let CurrentPart = 0;
 
-const genAI = new GoogleGenerativeAI(API_KEY);
+const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
 const chat = model.startChat({
