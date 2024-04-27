@@ -2,11 +2,12 @@
   "name": "David, VTA",
   "version": "1.6",
   "description": "MERN assignment",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js",
-    "start": "nodemon server.js"
+    "dev": "nodemon index.js",
+    "start": "nodemon index.js",
+    "build": "nodemon index.js"
   },
   "type": "module",
   "author": "",
