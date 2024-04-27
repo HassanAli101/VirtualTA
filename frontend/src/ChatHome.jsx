@@ -29,6 +29,7 @@ const ChatHome = () => {
                     setResponseData(response.data); // Update response data state
                 }
             } else {
+                console.log("error: ", response);
                 alert("You have been barred from using me, i dont aid violent or repetitive questions!");
             }
         } catch (err) {
