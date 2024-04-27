@@ -148,7 +148,7 @@ app.post("/GenQuerry", async (req, res) => {
         res.status(200).json(result);
     } catch (error) {
         console.log("error occured", error);
-        res.status(202).json("Are you sure you are asking a C++ related question?");
+        res.status(200).json("Are you sure you are asking a C++ related question?");
     }
 });
 
