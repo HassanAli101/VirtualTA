@@ -5,7 +5,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 let PartsArray = [];
 let NumParts = 0;
 let CurrentPart = 0;
-
+console.log("API KEY: ", process.env.API_KEY);
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
@@ -140,7 +140,7 @@ app.post("/GenQuerry", async (req, res) => {
         const result = await VTAAction(prompt);
         res.status(200).json(result);
     } catch (error) {
-        console.log("error occured", error);
+        console.log("error occured", error, "Api key: ", process.env.API_KEY);
         res.status(200).json("Are you sure you are asking a C++ related question?");
     }
 });
