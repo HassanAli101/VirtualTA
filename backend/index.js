@@ -152,6 +152,11 @@ app.post("/GenQuerry", async (req, res) => {
     }
 });
 
+app.get('/', (req, res) => {
+    res.send('Hello from your backend!');
+});
+
+
 
 
 
