@@ -1,4 +1,4 @@
-import "../../Style/ChatHome.css";
+import "./ChatHome.css";
 import { useState } from "react";
 import axios from "axios";
 
