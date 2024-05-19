@@ -1,4 +1,3 @@
-import "./ChatHome.css";
 import { useState } from "react";
 import axios from "axios";
 
@@ -12,7 +11,11 @@ const ChatHome = () => {
         e.preventDefault();
         setIsLoading(true);
         try {
+            //the below line is for pushing to main, comment it out when running locally
             const response = await axios.post("https://virtual-ta-server.vercel.app/GenQuerry", { prompt });
+
+            //the below line is for running locally, comment it out when pushing to main
+            // const response = await axios.post("http://localhost:8000/GenQuerry", { prompt });
             if (response.status === 200) {
                 console.log("response is: ", response);
                 //separate first 3 characters from response

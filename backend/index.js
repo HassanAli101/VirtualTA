@@ -2,10 +2,18 @@ import http from "http";
 import { app } from "./app.js"
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
+//below is the coode to run it locally. comment it out when pushing to main (as it is CI/CD with vercel).
+// import dotenv from "dotenv";
+// dotenv.config(
+//     {
+//         path: "./.env.local"
+//     }
+// );
+
 let PartsArray = [];
 let NumParts = 0;
 let CurrentPart = 0;
-console.log("API KEY: ", process.env.API_KEY);
+// console.log("API KEY: ", process.env.API_KEY);
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 function Navbar() {
   const navbarStyle = {
@@ -33,6 +34,12 @@ function Navbar() {
   };
 
   return (
+    <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1}}
+    transition={{ duration: 0.5, delay: 6 }}
+    // className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
+  >
     <nav style={navbarStyle}>
       <ul style={ulStyle}>
         <li style={{ flex: 1 }}>
@@ -43,6 +50,7 @@ function Navbar() {
         </li>
       </ul>
     </nav>
+    </motion.div>
   );
 }
 
