@@ -43,51 +43,54 @@ const ChatHome = () => {
     };
 
     return (
-        <div className="container">
-            <div className="VerticalSplit">
-                <form className="login-form" onSubmit={handleQuery}>
-                    <div className="response-area">
-                        {isLoading ? (
-                            <div className="loading-spinner"></div> // Your spinner element
-                        ) : (
-                            <>
-                            <textarea
-                                className="response-textarea"
-                                placeholder="This is where i will respond"
-                                value={responseData}
-                                readOnly
-                            ></textarea>
-                            <br/>
-                            <textarea
-                                className="corrections-textarea"
-                                placeholder="This is where i will provide feedback for incorrect answers"
-                                value={Corrections}
-                                readOnly
-                            ></textarea>
-                            </>
-                        )}
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="query">Query:</label>
-                        <input
-                            type="text"
-                            id="query"
-                            name="query"
-                            placeholder="Your Query Goes here"
-                            autoComplete="current-username"
-                            value={prompt}
-                            className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                            onChange={(e) => setPrompt(e.target.value)}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <button type="submit">Let's Find Out</button>
-                    </div>
-                </form>
-                
+        <>
+    <div className="rounded-full bg-[#181818] w-[150px] h-[150px] lg:w-[200px] lg:h-[200px] relative overflow-hidden">
+      <img
+          src="/Images/Hello.png"
+          alt="An Image Goes here"
+          className="rounded-full object-cover w-full h-full"
+        />
+      </div>
+        <form onSubmit={handleQuery} className="w-4/5 ml-0 flex flex-col space-y-4">
+            <div className="response-area">
+                {isLoading ? (
+                    <div className="loading-spinner w-full flex justify-center items-center">
+                         <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full text-gray-100"></div>
+                    </div> 
+                ) : (
+                    <>
+                    <textarea
+                        className="response-textarea bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg w-full p-2.5 mb-4 h-48"
+                        placeholder="This is where i will respond"
+                        value={responseData}
+                        readOnly
+                    ></textarea>
+                    <br/>
+                    <textarea
+                        className="corrections-textarea bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg w-full p-2.5 h-48"
+                        placeholder="This is where i will provide feedback for incorrect answers"
+                        value={Corrections}
+                        readOnly
+                    ></textarea>
+                    </>
+                )}
             </div>
-        </div>
+
+            <div className="form-group flex space-x-4">
+                <input
+                    type="text"
+                    placeholder="Your Query Goes here"
+                    value={prompt}
+                    className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg flex-grow p-2.5"
+                    onChange={(e) => setPrompt(e.target.value)}
+                />
+            </div>
+            <div >
+                <button type="submit"  className="bg-blue-500 text-white text-sm rounded-lg p-2.5">Let's Find Out</button>
+            </div>
+        </form>
+        
+        </>
     );
 };
 
