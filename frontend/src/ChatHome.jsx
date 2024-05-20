@@ -46,27 +46,38 @@ const ChatHome = () => {
         <div className="container">
             <div className="VerticalSplit">
                 <form className="login-form" onSubmit={handleQuery}>
-                    <h2>Hello, i am david, your very own CS100 Virtual Teaching Assistant, how can i help you?</h2>
                     <div className="response-area">
                         {isLoading ? (
                             <div className="loading-spinner"></div> // Your spinner element
                         ) : (
+                            <>
                             <textarea
                                 className="response-textarea"
+                                placeholder="This is where i will respond"
                                 value={responseData}
                                 readOnly
                             ></textarea>
+                            <br/>
+                            <textarea
+                                className="corrections-textarea"
+                                placeholder="This is where i will provide feedback for incorrect answers"
+                                value={Corrections}
+                                readOnly
+                            ></textarea>
+                            </>
                         )}
                     </div>
+
                     <div className="form-group">
                         <label htmlFor="query">Query:</label>
                         <input
                             type="text"
                             id="query"
                             name="query"
-                            placeholder="Enter your query (use keyword (syntax) for syntaxical help or begin with (how to) to start a problem solving session"
+                            placeholder="Your Query Goes here"
                             autoComplete="current-username"
                             value={prompt}
+                            className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                             onChange={(e) => setPrompt(e.target.value)}
                         />
                     </div>
@@ -74,13 +85,7 @@ const ChatHome = () => {
                         <button type="submit">Let's Find Out</button>
                     </div>
                 </form>
-                <div className="corrections-area">
-                    <textarea
-                        className="corrections-textarea"
-                        value={Corrections}
-                        readOnly
-                    ></textarea>
-                </div>
+                
             </div>
         </div>
     );

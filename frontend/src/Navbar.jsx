@@ -37,7 +37,7 @@ function Navbar() {
     <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1}}
-    transition={{ duration: 0.5, delay: 6 }}
+    transition={{ duration: 0.5, delay: 9 }}
     // className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
   >
     <nav style={navbarStyle}>
