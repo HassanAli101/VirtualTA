@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { AnimationTextType, AnimationImageType } from "./types";
+import Image from "next/image";
 
 const TextAnimation = ({ delay, children }: AnimationTextType) => {
   return (
@@ -23,12 +24,14 @@ const ImageAnimation = ({ delay, source }: AnimationImageType) => {
         className="col-span-4 place-self-center mt-4 lg:mt-0"
       >
       <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative overflow-hidden">
-      <img
+      <Image
           src={source}
           alt="An Image Goes here"
           className="rounded-full object-cover w-full h-full"
+          width={400}
+          height={400}
         />
-      </div>
+        </div>
       </motion.div>
     );
 };

@@ -28,7 +28,7 @@ const Introduction = () => {
       <br/>
       <TextAnimation delay={8.5}>
       <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-4xl">
-        If you want to get straight to chatting, use the navbar (now visible) to go to "Chat."
+        If you want to get straight to chatting, use the navbar (now visible) to go to &quotChat.&quot
       </p>
       </TextAnimation>
       </>

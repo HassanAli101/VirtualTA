@@ -54,7 +54,7 @@ const Explanations = () => {
           </TextAnimation>
    
         <TextAnimation delay={17 - 9.5}>
-          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-4xl">I have 2 modes mainly, a mode where I tell you the syntax in detail, you can ask this by using the keyword "syntax" in your query. and the second mode is Q/A mode, where I break down your question into multiple steps and at each step, ask you a question of how you would attempt it. if you are correct, I proceed to the next step, if you are incorrect or you dont know, then the feedback panel displays the correct output for your understanding and I will go on to the next step. Note: once this starts, your outputs will be treated like response to the questions being asked only.</p>
+          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-4xl">I have 2 modes mainly, a mode where I tell you the syntax in detail, you can ask this by using the keyword &quotsyntax&quot in your query. and the second mode is Q/A mode, where I break down your question into multiple steps and at each step, ask you a question of how you would attempt it. if you are correct, I proceed to the next step, if you are incorrect or you dont know, then the feedback panel displays the correct output for your understanding and I will go on to the next step. Note: once this starts, your outputs will be treated like response to the questions being asked only.</p>
           </TextAnimation>
   
         <TextAnimation delay={19 - 9.5}>

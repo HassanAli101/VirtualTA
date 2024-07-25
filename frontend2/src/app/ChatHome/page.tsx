@@ -1,6 +1,7 @@
 'use client';
 import { useState } from "react";
 import axios from "axios";
+import Image from "next/image";
 
 const ChatHome = () => {
     const [prompt, setPrompt] = useState("");
@@ -46,7 +47,7 @@ const ChatHome = () => {
     return (
         <>
     <div className="rounded-full bg-[#181818] w-[150px] h-[150px] lg:w-[200px] lg:h-[200px] relative overflow-hidden">
-      <img
+      <Image
           src="/Images/Hello.png"
           alt="An Image Goes here"
           className="rounded-full object-cover w-full h-full"
@@ -87,7 +88,7 @@ const ChatHome = () => {
                 />
             </div>
             <div >
-                <button type="submit"  className="bg-blue-500 text-white text-sm rounded-lg p-2.5">Let's Find Out</button>
+                <button type="submit"  className="bg-blue-500 text-white text-sm rounded-lg p-2.5">Let&aposs Find Out</button>
             </div>
         </form>
         
